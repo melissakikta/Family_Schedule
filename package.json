@@ -1,0 +1,25 @@
+{
+  "name": "byteshift",
+  "version": "1.0.0",
+  "description": "A dev focused social media platform primarily for",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
+    "render-build": "npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.13.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "antd": "^5.24.4",
+    "jwt-decode": "^4.0.0"
+  }
+}
