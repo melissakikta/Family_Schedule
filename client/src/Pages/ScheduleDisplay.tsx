@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../components/Post/Post';
+import Schedule from '../components/Scheulde/Schedule';
 import type PostType from '../interfaces/Post';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
