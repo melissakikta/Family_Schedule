@@ -10,9 +10,9 @@ const typeDefs = `#graphql
 	type Event {
 		_id: ID!
 		username: String!
-		type: String!
 		title: String!
-		content: String!
+		date: String!
+		location: String!
 		createdAt: String
 	}
 
@@ -29,9 +29,9 @@ const typeDefs = `#graphql
 
 	input AddEventInput {
 		username: String!
-		type: String!
 		title: String!
-		content: String!
+		date: String!
+		location: String!
 	}
 
   type Query {
