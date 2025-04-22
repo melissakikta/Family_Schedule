@@ -1,6 +1,6 @@
 import { GraphQLError } from 'graphql';
 import { signToken } from '../services/auth.js';
-import { User, Post, Comment } from '../models/index.js';
+import { User, Event } from '../models/index.js';
 import { Schema } from 'mongoose';
 
 // Define types for the arguments
@@ -16,10 +16,10 @@ interface LoginUserArgs {
 }
 
 interface AddEventArgs {
-    username: string; // The username of the user who created the post, required to be automatically populated
-    type: string; // The type of the post, required to be automatically populated
-    title: string; // The title of the post
-    content: string; // The content of the post
+    username: string; // The username of the user who created the event, required to be automatically populated
+    title: string; // The title of the event
+    date: string; // The date of the event
+    location: string //location of the event
 }
 
 
@@ -39,7 +39,7 @@ const resolvers = {
 
         // if we want different sorting algorithms create other custom getPosts resolvers, thois should be the default of newest first
         getEvents: async () => {
-            return await Post.find().populate('comments').sort({ createdAt: -1 }).exec();
+            return await Event.find().populate('comments').sort({ createdAt: -1 }).exec();
         },
 
     },
