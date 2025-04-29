@@ -1,7 +1,7 @@
 {
   "name": "byteshift",
   "version": "1.0.0",
-  "description": "A dev focused social media platform primarily for",
+  "description": "An application to store family schedules and events.",
   "main": "server/server.js",
   "scripts": {
     "start": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",

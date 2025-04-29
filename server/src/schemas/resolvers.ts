@@ -3,6 +3,7 @@ import { signToken } from '../services/auth.js';
 import { User, Event } from '../models/index.js';
 import { Schema } from 'mongoose';
 
+
 // Define types for the arguments
 interface AddUserArgs {
     username: string;
@@ -19,6 +20,7 @@ interface AddEventArgs {
     username: string; // The username of the user who created the event, required to be automatically populated
     title: string; // The title of the event
     date: string; // The date of the event
+    time: string; // The time of the event
     location: string //location of the event
 }
 
@@ -27,19 +29,19 @@ const resolvers = {
     Query: {
         // single command that can display all user data containing all existing posts and comments as well. Essentially a full DB query
         getUsersAllData: async () => {
-            return await User.find().populate('posts').populate('likedPosts').populate('dislikedPosts').populate('comments');
+            return await User.find().populate('events');
         },
 
         me: async (_parent: any, _args: any, context: any) => {
             if (context.user) {
-                return await User.findById(context.user._id).populate('posts').populate('comments');
+                return await User.findById(context.user._id).populate('events');
             }
             throw new GraphQLError('User not logged in');
         },
 
-        // if we want different sorting algorithms create other custom getPosts resolvers, thois should be the default of newest first
+        // if we want different sorting algorithms create other custom getPosts resolvers, this should be the default of newest first
         getEvents: async () => {
-            return await Event.find().populate('comments').sort({ createdAt: -1 }).exec();
+            return await Event.find().sort({ createdAt: -1 }).exec();
         },
 
     },

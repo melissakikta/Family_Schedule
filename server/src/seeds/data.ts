@@ -11,10 +11,11 @@ const EventSchema = new mongoose.Schema({
   username: { type: String, required: true },
   title: { type: String, required: true },
   date: { type: String, required: true },
+  time: { type: String, required: true },
   location: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 
 
 export const User = mongoose.model('User', UserSchema);
-export const Post = mongoose.model('Post', EventSchema);
+export const Event = mongoose.model('Event', EventSchema);
