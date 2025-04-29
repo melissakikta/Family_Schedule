@@ -19,209 +19,77 @@
 			"dislikedPosts": []
 		}
 	],
+	
 	"events": [
 		{
 			"username": "john_doe",
-			"title": "Track",
-			"date": "First!",
-			"likes": 32,
-			"dislikes": 455,
-			"comments": []
+			"title": "Mikko Track",
+			"date": "2/20/2023",
+			"time": "10:00 AM",
+			"location": "Hamilton Heights"
 		},
 		{
 			"username": "jane_doe",
-			"type": "blog",
-			"title": "Cool Place",
-			"content": "This is where I'll dump the contents of my developer mind.",
-			"imgURL": "https://picsum.photos/402",
-			"likes": 243,
-			"dislikes": 86,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "code",
-			"title": "I'll show you the ropes",
-			"content": "<html><body>\n\t<h1>My Post</h1>\n</body></html>",
-			"likes": 234,
-			"dislikes": 345,
-			"comments": []
+			"title": "Work Meeting",
+			"date": "2/20/2023",
+			"time": "11:00 AM",
+			"location": "Downtown Office"
 		},
 		{
 			"username": "john_doe",
-			"type": "blog",
-			"title": "I'm back!",
-			"content": "This is the content of my second, wonderful, blog post.",
-			"imgURL": "https://picsum.photos/302",
-			"likes": 3,
-			"dislikes": 59,
-			"comments": []
+			"title": "Grocery Pickup",
+			"date": "2/20/2023",
+			"time": "5:00 PM",
+			"location": "Kroger"
+		},
+		{
+			"username": "jane_doe",
+			"title": "Yoga Class",
+			"date": "2/21/2023",
+			"time": "6:30 PM",
+			"location": "Sunrise Yoga Studio"
 		},
 		{
 			"username": "john_doe",
-			"type": "link",
-			"title": "A place 4 placeholders",
-			"content": "This is a good place for placeholder images of specific sizes.",
-			"link": "https://placehold.co/",
-			"likes": 567,
-			"dislikes": 98,
-			"comments": []
+			"title": "Parent-Teacher Conference",
+			"date": "2/22/2023",
+			"time": "3:00 PM",
+			"location": "Hamilton Heights Elementary"
+		},
+		{
+			"username": "jane_doe",
+			"title": "Dentist Appointment",
+			"date": "2/22/2023",
+			"time": "3:30 PM",
+			"location": "Smile Dental Clinic"
 		},
 		{
 			"username": "john_doe",
-			"type": "code",
-			"title": "Let's start coding...",
-			"content": "<div>\n\t<crazyCode>\n\t\tLot of words\n\t</crazyCode>\n</div>",
-			"likes": 123,
-			"dislikes": 456,
-			"comments": []
+			"title": "Basketball Practice",
+			"date": "2/23/2023",
+			"time": "5:30 PM",
+			"location": "Hamilton Heights Gym"
 		},
 		{
 			"username": "jane_doe",
-			"type": "blog",
-			"title": "Let's get to the point",
-			"content": "Nobody REALLY thinks JS is good.",
-			"imgURL": "https://picsum.photos/202",
-			"likes": 530,
-			"dislikes": 210,
-			"comments": []
+			"title": "Volunteer Meeting",
+			"date": "2/23/2023",
+			"time": "6:00 PM",
+			"location": "Community Center"
 		},
 		{
 			"username": "john_doe",
-			"type": "code",
-			"title": "Covering HTML",
-			"content": "<html><body>\n\t<h1>\nThis is the content of my post.\n</h1>\n</body></html>",
-			"likes": 345,
-			"dislikes": 234,
-			"comments": []
+			"title": "Car Service Appointment",
+			"date": "2/24/2023",
+			"time": "8:00 AM",
+			"location": "Joe's Auto Shop"
 		},
 		{
 			"username": "jane_doe",
-			"type": "link",
-			"title": "Mo Ergo fo Mo People",
-			"content": "Screw RSI, not your wrists! Pick one of these bad boys up.",
-			"link": "https://www.moergo.com/",
-			"imgURL": "",
-			"likes": 345,
-			"dislikes": 234,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "blog",
-			"title": "Like my photo, plz....",
-			"content": "From my personal collection.",
-			"imgURL": "https://picsum.photos/800",
-			"likes": 567,
-			"dislikes": 98,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "code",
-			"title": "More mindless devThoughts.messages",
-			"content": "const Truth = 'We are all just bits on a wire...'",
-			"likes": 456,
-			"dislikes": 123,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "link",
-			"title": "This is a useful bit of info!",
-			"content": "Here's mutation information.",
-			"link": "https://graphql.org/learn/mutations/",
-			"imgURL": "",
-			"likes": 98,
-			"dislikes": 567,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "link",
-			"title": "APIs, to the moon and back!",
-			"content": "Apollo is very common for graphql, read how to use it here.",
-			"link": "https://www.apollographql.com/docs/react/data/queries",
-			"imgURL": "",
-			"likes": 234,
-			"dislikes": 345,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "blog",
-			"title": "ThePost",
-			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque neque mi, rhoncus eu venenatis accumsan, blandit laoreet libero. Quisque tristique iaculis enim ac ullamcorper. Sed accumsan consectetur ipsum, vitae fringilla purus vehicula non. Praesent id odio dapibus magna pulvinar sollicitudin quis ac leo. Cras interdum dolor sit amet hendrerit pellentesque. Suspendisse ultricies elit tempor bibendum elementum. In hac habitasse platea dictumst. Quisque tellus metus, gravida sed nisi nec, dictum eleifend magna. Nunc ullamcorper molestie sem et consequat. Proin pharetra, dui sed posuere interdum, nibh lorem dapibus felis, eu volutpat tellus neque nec eros. Fusce libero turpis, ultricies eu erat quis, tincidunt molestie enim. Sed vel quam libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras velit lectus, accumsan et velit eget, condimentum egestas felis. Aenean eget neque et libero interdum blandit ut a lectus. Mauris nisi est, gravida consectetur quam ac, facilisis tempus neque. Fusce eu gravida felis. Vestibulum vel orci sed velit convallis volutpat ut nec est. Mauris nibh sapien, vehicula vel magna eu, scelerisque faucibus lacus. Sed nisi ligula, malesuada non purus quis, interdum hendrerit mauris. Nullam id lacus auctor, suscipit purus et, efficitur nisl. Mauris fringilla justo lobortis risus lacinia, sed blandit lorem posuere. Vestibulum sed consequat dui. Maecenas consequat, tortor in dictum varius, justo tellus gravida sapien, a fermentum ante lectus ut odio. Sed in quam at nulla sodales pharetra at eu velit. Aliquam malesuada elementum purus. Aenean turpis est, tempus non ipsum nec, posuere porttitor augue. Morbi finibus vehicula aliquam. Morbi rutrum, felis quis sodales varius, tellus diam sollicitudin nulla, vel feugiat turpis nunc et urna. Quisque id eros posuere, bibendum ligula vel, volutpat enim. Sed sed egestas elit. Donec vel leo quis dolor porttitor blandit et id justo. Nulla dictum, velit aliquam sagittis condimentum, sapien ipsum lacinia diam, vel posuere est metus eget justo. Duis eu ex volutpat dolor pretium pharetra. Integer dapibus libero at libero tempor tincidunt. Integer aliquam auctor lectus, non interdum enim volutpat at. Morbi odio risus, euismod in consequat pellentesque, aliquam porttitor libero. Duis vel dolor lectus. Cras convallis lorem in lorem tincidunt varius. Nunc lobortis tellus eget tellus lacinia pellentesque. Nulla sagittis, felis at ornare faucibus, nulla eros gravida lacus, sed vulputate lacus velit in ex. Nullam tristique a eros in faucibus. Etiam massa quam, dictum vel quam et, vulputate pulvinar nulla. Pellentesque imperdiet euismod pharetra. Proin dui orci, pretium sagittis interdum eu, eleifend eu tortor. Curabitur fermentum ornare ligula, eu viverra justo varius non. Vivamus at pharetra eros, et molestie sem. Sed id aliquet tortor, at congue massa. Sed urna lorem, pellentesque tincidunt lectus ut, congue eleifend magna. Nunc tempus ut libero non viverra. Ut pulvinar lectus quis nisi porttitor malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque scelerisque convallis eros at fringilla. Ut sapien tortor, pulvinar in hendrerit in, finibus vitae velit. Ut vestibulum lorem at facilisis aliquam.",
-			"imgURL": "https://picsum.photos/900",
-			"likes": 456,
-			"dislikes": 123,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "blog",
-			"title": "cool stuff i found",
-			"content": "This is the content of my fourteenth post.",
-			"imgURL": "https://picsum.photos/800",
-			"likes": 567,
-			"dislikes": 98,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "blog",
-			"title": "What's going in here?",
-			"content": "Are the AI listening?",
-			"likes": 8,
-			"dislikes": 12,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "code",
-			"title": "More code for you",
-			"content": "const server = new ApolloServer({\n\ttypeDefs,\n\tresolvers,\n});",
-			"likes": 54,
-			"dislikes": 23,
-			"comments": []
-		}
-	],
-	"comments": [
-		{
-			"username": "jane_doe",
-			"content": "Great post!"
-		},
-		{
-			"username": "john_doe",
-			"content": "Thanks for sharing!"
-		},
-		{
-			"username": "jane_doe",
-			"content": "I totally agree!"
-		},
-		{
-			"username": "john_doe",
-			"content": "Thanks for the feedback!"
-		},
-		{
-			"username": "jane_doe",
-			"content": "Great post!"
-		},
-		{
-			"username": "john_doe",
-			"content": "Thanks for sharing!"
-		},
-		{
-			"username": "jane_doe",
-			"content": "I totally agree!"
-		},
-		{
-			"username": "john_doe",
-			"content": "Thanks for the feedback!"
-		},
-		{
-			"username": "jane_doe",
-			"content": "Great post!"
+			"title": "Family Game Night",
+			"date": "2/24/2023",
+			"time": "7:00 PM",
+			"location": "Home"
 		}
 	]
 }

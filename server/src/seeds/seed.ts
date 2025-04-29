@@ -21,9 +21,9 @@ const seedDatabase = async () => {
 
 	// Assign events to users
 	const users = await User.find();
-	//   randomly assign posts to users
+	//   randomly assign events to users
 	for (const user of users) {
-		const randomPosts = events.filter(event => event.username === user.username);
+		const randomEvents = events.filter(event => event.username === user.username);
 		user.events.push(...randomEvents.map(event => event._id as mongoose.Schema.Types.ObjectId));
 		await user.save();
 	}

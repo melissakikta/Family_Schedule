@@ -11,9 +11,10 @@ const typeDefs = `#graphql
 		_id: ID!
 		username: String!
 		title: String!
-		date: String!
+		date: Date!
+		time: String!
 		location: String!
-		createdAt: String
+		createdAt: Date
 	}
 
 	type Auth {
