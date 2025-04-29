@@ -2,25 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { Button, Typography, Card, Row, Col } from 'antd';
 
-import type PostType from '../../interfaces/Post';
-import type CommentProps from '../../interfaces/Comment';
+import type Event from '../../interfaces/Event';
 
-import CommentForm from '../Comment/CommentForm';
-import Comment from '../Comment/Comment';
 import AuthService from '../../utils/auth';
-
-
-import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
-import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } from '../../utils/mutations';
 
 const { Title, Text } = Typography;
 
-const Schedule: React.FC<{ post: PostType }> = ({ post }) => {
-	// query for comments, likes, and dislikes and store in state
-	const [comments, setComments] = useState<CommentProps[]>([]);
-
-	const [likes, setLikes] = useState<number>(post.likes || 0);
-	const [dislikes, setDislikes] = useState<number>(post.dislikes || 0);
+const Schedule: React.FC<{ event: Event }> = ({ event }) => {
 
 	function loggedUser() {
 		// return user from local storage
@@ -28,68 +16,8 @@ const Schedule: React.FC<{ post: PostType }> = ({ post }) => {
 		return user._id;
 	}
 
-	// Use mutations with refetchQueries
-	const [addLike] = useMutation(LIKE_POST, {
-		variables: { postId: post._id },
-		refetchQueries: [{ query: QUERY_GET_COMMENTS_FOR_POST, variables: { postId: post._id } }],
-	});
 
-	const [addDislike] = useMutation(DISLIKE_POST, {
-		variables: { postId: post._id },
-		refetchQueries: [{ query: QUERY_GET_COMMENTS_FOR_POST, variables: { postId: post._id } }],
-	});
-
-	const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS);
-	const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS);
-
-	//function to update likes count
-	async function updateLikes() {
-		try{
-			const { data } = await addLike({variables: { postId: post._id }});
-
-			if (data?.likePost) {
-				setLikes(data.likePost.likes);
-				await addToLikedPosts({variables: { postId: post._id, userId: loggedUser() } });
-			}
-		} catch (error) {
-			console.error("Error updating likes:", error);
-		}
-	}
-
-	//function to update dislikes count
-	async function updateDislikes() {
-		try{
-			const { data } = await addDislike({variables: { postId: post._id }});
-
-			if (data?.dislikePost) {
-				setDislikes(data.dislikePost.dislikes);
-				await addToDislikedPosts({variables: { postId: post._id, userId: loggedUser() } });
-			}
-		} catch (error) {
-			console.error("Error updating dislikes:", error);
-		}
-	}
-	
-	//fetch comments
-	const { data } = useQuery(QUERY_GET_COMMENTS_FOR_POST, {
-		variables: { postId: post._id },
-		skip: post.title === "test title",
-	});
-
-	useEffect(() => {
-		if (data && data.getCommentsForPost) {
-			setComments(
-				data.getCommentsForPost.map((comments: CommentProps) => ({
-					_id: comments._id,
-					username: comments.username,
-					content: comments.content,
-					createdAt: comments.createdAt
-				}))
-			);
-		}
-	}, [data]);
-
-	function generateBlogPost() {
+	function generateEvent() {
 		return (
 			<Card className="custom-menu-item" 
 				style={{ 
@@ -260,14 +188,10 @@ const Schedule: React.FC<{ post: PostType }> = ({ post }) => {
 		});
 	}
 
-	const typeOfPost = post.type;
-	if (!post) return <div>No post to display</div>;
-	if (typeOfPost === "blog") {
-		return generateBlogPost();
-	} else if (typeOfPost === "code") {
-		return generateCodePost();
-	} else if (typeOfPost === "link") {
-		return generateLinkPost();
+	const typeOfEvent = event.type;
+	if (!event) return <div>No post to display</div>;
+	if (typeOfEvent === "event") {
+		return generateEvent();
 	} else {
 		return <div>Unknown post type</div>;
 	}
