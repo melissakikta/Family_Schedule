@@ -19,12 +19,11 @@
 			"dislikedPosts": []
 		}
 	],
-	"posts": [
+	"events": [
 		{
 			"username": "john_doe",
-			"type": "blog",
-			"title": "!!!My First Post!!!",
-			"content": "First!",
+			"title": "Track",
+			"date": "First!",
 			"likes": 32,
 			"dislikes": 455,
 			"comments": []
