@@ -11,10 +11,10 @@ const typeDefs = `#graphql
 		_id: ID!
 		username: String!
 		title: String!
-		date: Date!
+		date: String!
 		time: String!
 		location: String!
-		createdAt: Date
+		createdAt: String
 	}
 
 	type Auth {
@@ -39,7 +39,7 @@ const typeDefs = `#graphql
 		getUsersAllData: [User]
 		#getUsers: [User]
 		me: User
-		# getUser(username: String!): User
+		getUser(username: String!): User
 		getEvents: [Event]
   	}
 

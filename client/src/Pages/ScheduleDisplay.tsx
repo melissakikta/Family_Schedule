@@ -1,9 +1,9 @@
 import React from 'react';
 import Schedule from '../components/Scheulde/Schedule';
-import type PostType from '../interfaces/Post';
+import type PostType from '../interfaces/Event';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_GET_POSTS } from '../utils/queries';
+import { QUERY_GET_EVENTS } from '../utils/queries';
 import { Row, Col, Card } from 'antd';
 
 const PostDisplay: React.FC = () => {
