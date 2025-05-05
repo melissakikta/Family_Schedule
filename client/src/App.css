@@ -139,6 +139,37 @@
   color: var(--active-color);
 }
 
+/*Event Card*/
+.custom-event-card {
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  background-color: var(--tertiary);
+  border: 2px solid var(--quaternary);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--quaternary);
+}
+
+.event-title {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  color: var(--active-color);
+}
+
+.event-user {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.event-details {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  color: var(--active-color);
+  display: block;
+  padding-top: 15px;
+}
+
 
 @media (max-width: 767px) {
   
