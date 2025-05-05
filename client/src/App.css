@@ -99,6 +99,47 @@
   font-size: 1.75rem;
 }
 
+/*Table styling*/
+.custom-event-table {
+  background-color: var(--secondary);
+  font-family: var(--font-body);
+  color: var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-event-table .ant-table-thead > tr > th {
+  background-color: var(--tertiary);
+  color: var(--active-color);
+  font-family: var(--font-header);
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.custom-event-table .ant-table-tbody > tr > td {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.custom-event-table .ant-table-tbody > tr:hover > td {
+  background-color: var(--quaternary);
+  transition: background-color 0.3s ease;
+}
+
+/* Button styling */
+.custom-event-table button {
+  background-color: var(--warning);
+  color: var(--active-color);
+  border: none;
+}
+
+.custom-event-table button:hover {
+  background-color: var(--primary);
+  color: var(--active-color);
+}
+
+
 @media (max-width: 767px) {
   
   /*NavBar links vertical */
