@@ -33,6 +33,24 @@ const userSchema = new Schema<IUser>(
     }
 );
 
+// for sending hooks
+userSchema.pre<IUser>('insertMany', async function (next, docs: IUser[]) {
+    try {
+        for (const doc of docs) {
+            const saltRounds = 10;
+            doc.password = await bcrypt.hash(doc.password, saltRounds);
+        }
+        next();
+    } catch (error) {
+       if (error instanceof Error) {
+            next(error);
+        }
+        else {
+            next(new Error('An unknown error occurred while hashing passwords.'));
+        }
+    }
+});
+
 // pre hook to hash the password before saving a new user or updating password field on a user
 userSchema.pre<IUser>('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
