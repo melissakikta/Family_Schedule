@@ -16,7 +16,21 @@ const db = async (): Promise<typeof mongoose.connection> => {
 	try {
 		await mongoose.connect(MONGODB_URI);
 		console.log('Database connected.');
+		
+		mongoose.connection.on('connected', () => {
+			console.log('Mongoose connected to database');
+		});
+		
+		mongoose.connection.on('error', (err) => {
+			console.error('Mongoose connection error:', err);
+		});
+
+		mongoose.connection.on('disconnected', () => {
+			console.log('Mongoose disconnected from database');
+		});
+
 		return mongoose.connection;
+		
 	} catch (error) {
 		console.error('Database connection error:', error);
 		throw new Error('Database connection failed.');

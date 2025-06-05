@@ -4,7 +4,7 @@ const typeDefs = `#graphql
     	username: String!
     	email: String!
     	password: String!
-    	event: [Event]
+    	events: [Event]
   	}
 
 	type Event {
@@ -32,6 +32,7 @@ const typeDefs = `#graphql
 		username: String!
 		title: String!
 		date: String!
+		time: String!
 		location: String!
 	}
 

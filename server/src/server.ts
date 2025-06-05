@@ -1,11 +1,16 @@
-import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import path from 'path';
 import { authenticateToken } from './services/auth.js';
 
 import { typeDefs, resolvers } from './schemas/index.js';
-import db from './dbconfig/connection.js';
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import db from './dbconfig/connection';
+
 
 import type { Request, Response } from 'express';
 
