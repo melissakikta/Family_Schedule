@@ -39,6 +39,10 @@ const resolvers = {
             throw new GraphQLError('User not logged in');
         },
 
+        getUser: async (_: any, { username }: { username: string }) => {
+            return await User.findOne({ username }).populate('events');
+        },
+    
         // if we want different sorting algorithms create other custom getPosts resolvers, this should be the default of newest first
         getEvents: async () => {
             return await Event.find().sort({ createdAt: -1 }).exec();
@@ -71,7 +75,9 @@ const resolvers = {
 
         addEvent: async (_parent: any, { eventInput }: { eventInput: AddEventArgs }) => {
             const user = await User.findOne({ username: eventInput.username });
+
             if (!user) throw new GraphQLError('User not found');
+
             try {
                 const newEvent = await Event.create(eventInput);
                 user.events.push(newEvent._id as Schema.Types.ObjectId);
@@ -80,8 +86,8 @@ const resolvers = {
             }
             catch (err) {
                 console.error(err);
+                throw new GraphQLError('Failed to create event');
             }
-            return;
         },
 
 
@@ -90,6 +96,7 @@ const resolvers = {
             if (!event) throw new GraphQLError('Event not found');
 
             await Event.deleteOne({ _id: eventId });
+
             await User.findByIdAndUpdate({ username: event.username }, { $pull: { event: eventId } });
 
             return await User.findOne({ username: event.username }).populate('events');
@@ -101,6 +108,13 @@ const resolvers = {
                 return user;
             }
             throw new GraphQLError('User not logged in');
+        },
+
+        User: {
+            events: async (parent: any) => {
+                // Populate the events field with the user's events
+                return await Event.find({ _id: { $in: parent.events } });
+            },
         },
     },
 };
