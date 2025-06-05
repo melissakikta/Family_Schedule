@@ -22,6 +22,7 @@
 
     "outDir": "./dist",
   },
-  "include": ["src"],
+  "include": ["src/**/*", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist", "build", "coverage", "scripts", "test", "tests", "**/*.spec.ts", "**/*.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
