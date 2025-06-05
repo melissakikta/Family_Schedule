@@ -15,6 +15,7 @@ export const QUERY_GET_ALL_USERS_ALL_DATA = gql`
         createdAt
       }
   	}
+  }
 `;
 
 export const QUERY_GET_ME = gql`
