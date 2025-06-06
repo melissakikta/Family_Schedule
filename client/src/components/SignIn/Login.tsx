@@ -43,7 +43,7 @@ const Login = () => {
        }}>
         <Title level={2} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "2.5rem" }}>Login</Title>
 
-        {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16, background: "white", color: "var(--warning)" }} />}
+        {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16, background: "white", color: "var(--warning)", fontSize: "1.4rem" }} />}
         
         <Form
           form={form}
@@ -81,7 +81,7 @@ const Login = () => {
 
               {error && (
                 <div>
-                  <p className="error-text" style={{ color: 'var(--warning)', fontSize: '1rem' }}>The provided credentials are incorrect.</p>
+                  <p className="error-text" style={{ color: 'var(--warning)', backgroundColor: "white", fontSize: '1.5rem' }}>The provided credentials are incorrect.</p>
                 </div>
               )}
           </Form.Item>
