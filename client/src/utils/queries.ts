@@ -55,7 +55,7 @@ export const QUERY_GET_USER = gql`
 `;
 
 export const QUERY_GET_EVENTS = gql`
-  	query getEvents {
+  	query GetEvents {
     getEvents {
       _id
       username
