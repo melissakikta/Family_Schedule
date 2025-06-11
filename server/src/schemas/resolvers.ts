@@ -45,7 +45,28 @@ const resolvers = {
     
         // if we want different sorting algorithms create other custom getPosts resolvers, this should be the default of newest first
         getEvents: async () => {
-            return await Event.find().sort({ createdAt: -1 }).exec();
+            try {
+                const events = await Event.find({}).lean();
+                console.log('Raw events from DB:', events);
+                
+                // Check each event's time field specifically
+                events.forEach((event, index) => {
+                    console.log(`Event ${index}:`, {
+                        _id: event._id,
+                        title: event.title,
+                        time: event.time,
+                        timeType: typeof event.time,
+                        timeIsNull: event.time === null,
+                        timeIsUndefined: event.time === undefined,
+                        allFields: Object.keys(event)
+                    });
+                });
+                
+                return events;
+            } catch (error) {
+                console.error('Database error:', error);
+                throw new Error('Failed to fetch events');
+            }
         },
 
     },

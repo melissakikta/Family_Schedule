@@ -56,15 +56,15 @@ export const QUERY_GET_USER = gql`
 
 export const QUERY_GET_EVENTS = gql`
   	query GetEvents {
-    getEvents {
-      _id
-      username
-      title
-      date
-      time
-      location
-      createdAt
+      getEvents {
+        _id
+        username
+        title
+        date
+        time
+        location
+        createdAt
+      }
     }
-  }
 `;
 

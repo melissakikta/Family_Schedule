@@ -5,6 +5,7 @@ export interface IEvent extends Document {
     title: string;
     date: string;
     location: string;
+    time: string;
     createdAt: Date;
 }
 
@@ -26,6 +27,11 @@ const eventSchema = new Schema<IEvent>(
             type: String,
             required: true
         },
+        time: {
+            type: String,
+            required: true,
+        },
+
         createdAt: {
             type: Date,
             default: Date.now,
