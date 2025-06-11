@@ -46,7 +46,9 @@ const Signup: React.FC = () => {
 
         {data ? (
           <Text type="success">
+            
             Your login was successful. Click <Link to="/schedule">here</Link> to see your schedule.
+
           </Text>
         ) : (
           
