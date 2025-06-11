@@ -42,7 +42,15 @@ const EventTable: React.FC = () => {
   ];
 
   if (loading) return <p>Loading events...</p>;
-  if (error) return <p>Error loading events.</p>;
+  if (error) { 
+    console.error ('GraphQL Error:', error);
+    return (
+    <div>
+      <p>Error loading events: {error?.message ?? 'Unknown error'}</p>
+      <Button onClick={() => refetch()}>Retry</Button>
+      </div>
+    );
+  }
 
   return (
     <Table
