@@ -110,11 +110,12 @@ const resolvers = {
             throw new GraphQLError('User not logged in');
         },
 
-        User: {
-            events: async (parent: any) => {
-                // Populate the events field with the user's events
-                return await Event.find({ _id: { $in: parent.events } });
-            },
+    },
+    
+    User: {
+        events: async (parent: any) => {
+            // Populate the events field with the user's events
+            return await Event.find({ _id: { $in: parent.events } });
         },
     },
 };
