@@ -1,5 +1,4 @@
 import { Schema, model, Document } from 'mongoose';
-import Event from './Event';
 import bcrypt from 'bcrypt';
 
 export interface IUser extends Document {
@@ -29,7 +28,12 @@ const userSchema = new Schema<IUser>(
             required: true,
             minlength: 8,
         },
-        events: [ Event.schema! ],
+        events: [ 
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Event',
+            },
+        ],
     }
 );
 
