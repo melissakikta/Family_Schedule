@@ -95,21 +95,54 @@ const resolvers = {
         },
 
         addEvent: async (_parent: any, { eventInput }: { eventInput: AddEventArgs }) => {
+            console.log("=== BACKEND DEBUG ===");
+            console.log("Received eventInput:", JSON.stringify(eventInput, null, 2));
+            
             const user = await User.findOne({ username: eventInput.username });
-
-            if (!user) throw new GraphQLError('User not found');
-
+            console.log("Found user:", user ? `${user.username} (ID: ${user._id})` : "No user found");
+        
+            if (!user) {
+                console.log("User not found error");
+                throw new GraphQLError('User not found');
+            }
+        
             try {
+                console.log("Attempting to create event...");
                 const newEvent = await Event.create(eventInput);
+                console.log("Created event successfully:", JSON.stringify(newEvent.toObject(), null, 2));
+                
+                console.log("Adding event to user's events array...");
                 user.events.push(newEvent._id as Schema.Types.ObjectId);
                 await user.save();
+                console.log("User saved successfully. User now has", user.events.length, "events");
+                
+                console.log("Returning event:", JSON.stringify(newEvent.toObject(), null, 2));
                 return newEvent;
             }
             catch (err) {
-                console.error(err);
+                console.error("=== ERROR CREATING EVENT ===");
+                console.error("Error details:", err);
                 throw new GraphQLError('Failed to create event');
             }
         },
+
+
+        // addEvent: async (_parent: any, { eventInput }: { eventInput: AddEventArgs }) => {
+        //     const user = await User.findOne({ username: eventInput.username });
+
+        //     if (!user) throw new GraphQLError('User not found');
+
+        //     try {
+        //         const newEvent = await Event.create(eventInput);
+        //         user.events.push(newEvent._id as Schema.Types.ObjectId);
+        //         await user.save();
+        //         return newEvent;
+        //     }
+        //     catch (err) {
+        //         console.error(err);
+        //         throw new GraphQLError('Failed to create event');
+        //     }
+        // },
 
 
         deleteEvent: async (_parent: any, { eventId }: { eventId: string }) => {

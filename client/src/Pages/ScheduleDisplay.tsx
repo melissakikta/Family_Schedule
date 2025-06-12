@@ -58,7 +58,7 @@ const EventTable: React.FC = () => {
       dataSource={data?.getEvents || []}
       columns={columns}
       rowKey="_id"
-      pagination={{ pageSize: 5 }}
+      pagination={{ pageSize: 25 }}
     />
   );
 };

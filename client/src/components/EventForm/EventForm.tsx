@@ -29,24 +29,54 @@ const EventForm: React.FC = () => {
 			return;
 		}
 
-		try {
-			await addEvent({
-				variables: {
-					eventInput: {
-						username: user,
-						title: values.title,
-            date: values.date,
-            time: values.time,
-            location: values.location,
+    const eventData = {
+			username: user,
+			title: values.title,
+			date: values.date,
+			time: values.time,
+			location: values.location,
+	};
+	
+	console.log("Sending to backend:", eventData);
+
+	try {
+			const result = await addEvent({
+					variables: {
+							eventInput: eventData,
 					},
-				},
 			});
+			
+			console.log("=== MUTATION RESULT ===");
+			console.log("Full result:", result);
+			console.log("Result data:", result.data);
+			console.log("Returned event:", result.data?.addEvent);
+			
 			message.success("Event added successfully!");
 			form.resetFields();
-		} catch (error) {
+	} catch (error) {
+			console.log("=== MUTATION ERROR ===");
+			console.error("Full error:", error);
 			message.error("Failed to submit event. Please try again.");
-			console.error("Error submitting event:", error);
-		}
+	}		
+
+		// try {
+		// 	await addEvent({
+		// 		variables: {
+		// 			eventInput: {
+		// 				username: user,
+		// 				title: values.title,
+    //         date: values.date,
+    //         time: values.time,
+    //         location: values.location,
+		// 			},
+		// 		},
+		// 	});
+		// 	message.success("Event added successfully!");
+		// 	form.resetFields();
+		// } catch (error) {
+		// 	message.error("Failed to submit event. Please try again.");
+		// 	console.error("Error submitting event:", error);
+		// }
 	};
 
 	return (
@@ -81,25 +111,29 @@ const EventForm: React.FC = () => {
 
 				{/* date */}
 				<Form.Item
-					label={<span style={{ color: "var(--secondary)" }}>Blog Content</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Date</span>}
 					name="date"
 					rules={[
 						{ required: true, message: "Please enter date here." }]}
 				>
-					<TextArea rows={10} placeholder="MM/DD/YYYY" />
+					<TextArea rows={1} placeholder="MM/DD/YYYY" />
 				</Form.Item>
 
 				{/* Time */}
 				<Form.Item
-					label={<span style={{ color: "var(--secondary)" }}>Image URL (Optional)</span>}
-					name="time">
+					label={<span style={{ color: "var(--secondary)" }}>Time</span>}
+					name="time"
+					rules={[{ required: true, message: "Please enter a time." }]}
+					>
 					<Input placeholder="Enter a time" />
 				</Form.Item>
 
         {/* Location */}
         <Form.Item
-					label={<span style={{ color: "var(--secondary)" }}>Image URL (Optional)</span>}
-					name="location">
+					label={<span style={{ color: "var(--secondary)" }}>Location</span>}
+					name="location"
+					rules={[{ required: true, message: "Please enter a location." }]}
+					>
 					<Input placeholder="Enter a location" />
 				</Form.Item>
         
@@ -112,7 +146,7 @@ const EventForm: React.FC = () => {
 							className="custom-menu-item"
 							loading={loading}
 						>
-							{loading ? "Submitting..." : "Submit Link"}
+							{loading ? "Submitting..." : "Submit Event"}
 						</Button>
 						<Button
 							type="primary"
