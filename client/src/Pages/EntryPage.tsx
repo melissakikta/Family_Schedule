@@ -14,19 +14,17 @@ const Entry: React.FC = () => {
   return (
     <Layout className="home" style={{ minHeight: "100vh", padding: "40px", background: "var(--tertiary)" }}>
       <Content className="page-section" style={{ textAlign: "center", maxWidth: 800, margin: "auto" }}>
-        <Title level={1} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)" }}>Welcome to ByteShift!</Title>
+        <Title level={1} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)" }}>Welcome to Family Schedule!</Title>
         <Row gutter={[16, 16]} justify="center">
           <Col span={24}>
             <Paragraph  style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem"}}>
-              Struggling to keep track of important team updates? Losing links in endless email threads?
+              Struggling to keep track of your family's events? 
             </Paragraph>
             <Paragraph className="home" style={{ color: "var(--active-color)", fontFamily: "var(--font-header)"}}>
-              Try <strong>ByteShift</strong>!
+              Try <strong>Family Schedule</strong>!
             </Paragraph>
             <Paragraph style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem"}}>
-              ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. 
-              Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. 
-              Say goodbye to scattered information and hello to streamlined teamwork!
+              Family Schedule is a simple, intuitive calendar app designed to help families manage their schedules effortlessly.
             </Paragraph>
           </Col>
         </Row>

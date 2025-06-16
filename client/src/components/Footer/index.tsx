@@ -14,12 +14,12 @@ const FooterComponent: React.FC = () => {
       <Text style={{ color: 'var(--primary)', fontSize: '1.75rem', fontFamily: 'var(--font-header)' }}>
         Developed by:
       </Text>
-
+      <Space size="large" style={{marginTop: '10px', display: 'flex', justifyContent: 'center'}}>  
         <Link className="footer-link" href="https://github.com/melissakikta" target="_blank" rel="noopener noreferrer"style={{color: 'var(--primary)', fontSize: '2rem', fontFamily: 'var(--font-body)'}}>
           <strong>Missy</strong>
           <img src={github} alt="github link" style={{ width: "40px", marginLeft: "5px", marginBottom: "5px" }}/>
         </Link>
-    
+      </Space>
     </Footer>
   );
 };

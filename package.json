@@ -1,7 +1,7 @@
 {
   "name": "byteshift",
   "version": "1.0.0",
-  "description": "A dev focused social media platform primarily for",
+  "description": "An application to store family schedules and events.",
   "main": "server/server.js",
   "scripts": {
     "start": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
@@ -20,6 +20,7 @@
     "@apollo/client": "^3.13.1",
     "@vitejs/plugin-react": "^4.2.1",
     "antd": "^5.24.4",
-    "jwt-decode": "^4.0.0"
+    "jwt-decode": "^4.0.0",
+    "mongoose": "^8.15.1"
   }
 }
